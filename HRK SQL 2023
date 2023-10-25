@@ -1,0 +1,54 @@
+---------------------------------------------------------------------------------------------------
+
+--------------------------------
+Student analysis SQL solution-
+--------------------------------
+SELECT a.roll_number,a.name
+FROM student_information a
+INNER JOIN examination_marks b
+ON a.roll_number = b.roll_number
+GROUP BY b.roll_number
+HAVING SUM(b.subject_one + b.subject_two + b.subject_three) < 100;
+
+----------------------------------------------------------------------------------------------------
+
+---------------------------------------------------------------------------------------------------
+
+--------------------------
+Country codes SQL solution
+--------------------------
+SELECT a.customer_id,a.name,concat("+",b.country_code,a.phone_number)
+FROM customers as aLEFT join country_codes
+as b ON a.country=b.countryORDER BY a.customer_id;
+
+---------------------------------------------------------------------------------------------------
+
+
+
+--------------------------------------------------------------------------------------------------
+
+-------------------------------------
+Student Advisor SQL solution in MYSQL
+-------------------------------------
+SELECT a.stock_codeFROM price_today a
+INNER JOIN price_tomorrow bON a.stock_code = b.stock_codeWHERE b.price>a.price
+ORDER BY stock_code asc;
+
+--------------------------------------------------------------------------------------------------
+
+
+
+-------------------------------------------------------------------------------------------------
+
+-------------
+Merit Rewards
+-------------
+SELECT
+ei.employee_ID,
+ei.name
+FROM employee_information ei
+JOIN last_quarter_bonus b ON b.employee_ID = ei.employee_ID
+WHERE ei.division LIKE 'HR'
+AND b.bonus >= 5000;
+
+-------------------------------------------------------------------------------------------------
